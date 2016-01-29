@@ -7,10 +7,18 @@ $font-family-logo:       'Titillium Web', sans-serif;
   font-family: $font-family-logo;
 }
 
+// this allows us to have the flush footer that extends with viewport
+html {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom:100px;
+}
+
 // Bootstrap overrides
 $headings-font-family:   'Merriweather Sans', sans-serif;
 $font-family-sans-serif: 'Source Sans Pro', sans-serif;
 $brand-primary: #5CB85C;
+$brand-danger:  #B85C5C;
 
 // Set the navbar's logo to the conduit logo font & large size
 .navbar-brand {
@@ -51,6 +59,10 @@ footer {
   background:#f3f3f3;
   margin-top:3rem;
   padding:1rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
 
   .attribution {
     vertical-align: top;
@@ -61,6 +73,11 @@ footer {
   }
 }
 
+// general error handling style
+.error-messages {
+  color: $brand-danger !important;
+  font-weight:bold;
+}
 
 // This is used on homepage & post page
 // Basically a pretty wrapper for H1 at top
@@ -162,5 +179,8 @@ footer {
 @import 'home.scss';
 @import 'post.scss';
 @import 'profile.scss';
+@import 'editor.scss';
+@import 'auth.scss';
+@import 'settings.scss';
 
 @import './bootstrap/scss/bootstrap.scss';
