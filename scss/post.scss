@@ -42,3 +42,33 @@
   }
 
 }
+
+
+.favorite-button-bottom {
+  text-align: center;
+  margin:1.5rem 0 3rem 0;
+}
+
+.comment-form {
+  .card-block {
+    padding:0;
+
+    textarea {
+      border: 0px;
+      padding: 1.25rem;
+    }
+  }
+
+  .card-footer {
+    .btn {
+      font-weight: 700;
+      float:right;
+    }
+  }
+}
+
+.comment-author-img {
+  height:30px;
+  width:30px;
+  border-radius:30px;
+}
