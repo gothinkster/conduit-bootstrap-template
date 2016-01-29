@@ -27,6 +27,26 @@ $brand-primary: #5CB85C;
 }
 $navbar-padding-x: 0rem !important;
 
+// create style for nav-link pills that do an outline instead of block
+.nav-pills.outline-active {
+  .nav-link {
+    border-radius:0px;
+    border:none;
+    border-bottom:2px solid transparent;
+    background:transparent;
+    color:#aaa;
+    &:hover {
+      color:#555;
+    }
+
+    &.active {
+      background: #fff !important;
+      border-bottom:2px solid $brand-primary !important;
+      color: $brand-primary !important;
+    }
+  }
+}
+
 footer {
   background:#f3f3f3;
   margin-top:3rem;
@@ -105,6 +125,34 @@ footer {
   }
 }
 
+
+// Preview links inside post previews
+.post-preview {
+  border-top:1px solid rgba(0,0,0,.1);
+  padding:1.5rem 0;
+
+  .post-meta {
+    margin:0 0 1rem 0;
+  }
+  .preview-link {
+    h1 {
+      font-weight:700 !important;
+      font-size:2rem !important;
+    }
+    p {
+      font-family: 'Source Serif Pro', serif;
+      margin-bottom:0;
+    }
+    // "Read more" span
+    span {
+      font-size:0.8rem;
+      font-weight:300;
+      color:#bbb;
+    }
+  }
+}
+
+
 // Counter for buttons
 .btn .counter {
   font-size:0.8rem !important;
@@ -113,5 +161,6 @@ footer {
 // Import all of our SCSS files
 @import 'home.scss';
 @import 'post.scss';
+@import 'profile.scss';
 
 @import './bootstrap/scss/bootstrap.scss';
