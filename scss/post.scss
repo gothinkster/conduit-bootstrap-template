@@ -68,22 +68,33 @@
       font-weight: 700;
       float:right;
     }
+
+    .comment-author-img {
+      height:30px;
+      width:30px;
+    }
   }
 }
 
 .card {
   .card-footer {
+    font-size:0.8rem;
     font-weight: 300;
   }
   .comment-author-img {
-    height:30px;
-    width:30px;
+    display: inline-block;
+    vertical-align: middle;
+    height:20px;
+    width:20px;
     border-radius:30px;
   }
   .comment-author {
-
+    display: inline-block;
+    vertical-align: middle;
   }
   .date-posted {
+    display: inline-block;
+    vertical-align: middle;
     margin-left:5px;
     color:#bbb;
   }
@@ -91,7 +102,7 @@
   .mod-options {
     float:right;
     color:#333;
-    font-size:1.2rem;
+    font-size:1rem;
 
     i {
       margin-left:5px;

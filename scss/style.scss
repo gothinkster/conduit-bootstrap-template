@@ -27,6 +27,19 @@ $brand-primary: #5CB85C;
 }
 $navbar-padding-x: 0rem !important;
 
+footer {
+  background:#f3f3f3;
+  margin-top:3rem;
+  padding:1.5rem 0 1.5rem 0;
+
+  .attribution {
+    margin-left:15px;
+    font-size: 0.8rem;
+    color:#bbb;
+    font-weight:300;
+  }
+}
+
 
 // This is used on homepage & post page
 // Basically a pretty wrapper for H1 at top
