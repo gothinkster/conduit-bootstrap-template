@@ -1,0 +1,44 @@
+.banner.post-page {
+  padding:3rem 0 2rem 0;
+
+  h1 {
+    font-size:2.8rem;
+  }
+
+
+
+  // Set follow/favorite buttons to lower opacity until hovered
+  .btn {
+    opacity: 0.8;
+    &:hover {
+      transition: 0.1s all;
+      opacity: 1;
+    }
+  }
+
+  // Post page style overrides for metadata
+  .post-meta {
+    margin:2rem 0 0 0;
+
+    .author {
+      color:#fff;
+    }
+  }
+
+}
+
+// General styles for post content
+.post-content {
+  p {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1.2rem;
+    line-height:1.8rem;
+    margin-bottom:2rem;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight:700 !important;
+    margin:1.6rem 0 1rem 0;
+  }
+
+}
