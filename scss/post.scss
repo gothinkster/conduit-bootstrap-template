@@ -44,9 +44,13 @@
 }
 
 
-.favorite-button-bottom {
+.post-actions {
   text-align: center;
   margin:1.5rem 0 3rem 0;
+
+  .post-meta .info {
+    text-align: left;
+  }
 }
 
 .comment-form {
@@ -67,8 +71,37 @@
   }
 }
 
-.comment-author-img {
-  height:30px;
-  width:30px;
-  border-radius:30px;
+.card {
+  .card-footer {
+    font-weight: 300;
+  }
+  .comment-author-img {
+    height:30px;
+    width:30px;
+    border-radius:30px;
+  }
+  .comment-author {
+
+  }
+  .date-posted {
+    margin-left:5px;
+    color:#bbb;
+  }
+
+  .mod-options {
+    float:right;
+    color:#333;
+    font-size:1.2rem;
+
+    i {
+      margin-left:5px;
+      opacity:0.6;
+      cursor:pointer;
+
+      &:hover {
+        opacity:1;
+      }
+    }
+  }
+
 }
