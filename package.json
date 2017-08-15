@@ -2,8 +2,9 @@
   "name": "conduit-bootstrap-template",
   "version": "2.0.0",
   "description": "Conduit Bootstrap Template",
-  "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
