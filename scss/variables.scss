@@ -15,12 +15,15 @@ $blue: #007bff;
 $indigo: #6610f2;
 $purple: #6f42c1;
 $pink: #e83e8c;
-$red: #b85c5c;
+$red: #dc3545;
 $orange: #fd7e14;
 $yellow: #ffc107;
-$green: #5cb85c;
+$green: #28a745;
 $teal: #20c997;
 $cyan: #17a2b8;
+
+$conduit-primary: #5cb85c;
+$conduit-danger: #b85c5c;
 
 $colors: (
   blue: $blue,
@@ -39,12 +42,12 @@ $colors: (
 );
 
 $theme-colors: (
-  primary: $green,
+  primary: $conduit-primary,
   secondary: $gray-600,
   success: $green,
   info: $cyan,
   warning: $yellow,
-  danger: $red,
+  danger: $conduit-danger,
   light: $gray-100,
   dark: $gray-800
 );

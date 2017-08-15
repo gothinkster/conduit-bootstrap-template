@@ -17,8 +17,6 @@ html {
 // Bootstrap overrides
 $headings-font-family: 'Merriweather Sans', sans-serif;
 $font-family-sans-serif: 'Source Sans Pro', sans-serif;
-theme-colors(primary): #5cb85c;
-theme-colors(danger): #b85c5c;
 
 // Set the navbar's logo to the conduit logo font & large size
 .navbar-brand {
@@ -26,7 +24,7 @@ theme-colors(danger): #b85c5c;
   font-size: 1.5rem !important;
   padding-top: 0rem !important;
   margin-right: 2rem !important;
-  color: theme-colors(primary) !important;
+  color: $conduit-primary !important;
   // margin-bottom:40px;
 }
 // set a smooth transition for nav-link hover effects
@@ -49,8 +47,8 @@ $navbar-padding-x: 0rem !important;
 
     &.active {
       background: #fff !important;
-      border-bottom: 2px solid theme-colors(primary) !important;
-      color: theme-colors(primary) !important;
+      border-bottom: 2px solid $conduit-primary !important;
+      color: $conduit-primary !important;
     }
   }
 }
@@ -74,7 +72,7 @@ footer {
 
 // general error handling style
 .error-messages {
-  color: theme-colors(danger) !important;
+  color: $conduit-danger !important;
   font-weight: bold;
 }
 
