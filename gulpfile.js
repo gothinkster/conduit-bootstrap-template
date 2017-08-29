@@ -1,50 +1,54 @@
-var gulp = require('gulp');
-var template = require('gulp-template');
-var server = require('gulp-server-livereload');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var fs = require('fs');
-var gutil = require('gulp-util');
+const gulp = require("gulp");
+const template = require("gulp-template");
+const server = require("gulp-server-livereload");
+const sass = require("gulp-sass");
+const cleanCSS = require("gulp-clean-css");
+const fs = require("fs");
+const gutil = require("gulp-util");
 
-gulp.task('styles', function() {
-  gulp.src('./scss/style.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(minifyCss({compatibility: 'ie9'}))
-    .pipe(gulp.dest('./app/css/'))
+const cleanOptions = { compatibility: "ie9" };
+const serverOptions = {
+  livereload: true,
+  directoryListing: false,
+  open: true
+};
+
+gulp.task("styles", function() {
+  gulp
+    .src("./scss/style.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(cleanCSS(cleanOptions))
+    .pipe(gulp.dest("./app/css/"));
 });
 
-gulp.task('templates', function () {
-  var templates = {};
-  var files = fs.readdirSync('./pages/partials')
-      .filter(function(file) {
-        // return filename
-        if (file.charAt(0) === '_') {
-          return file;
-        }
+gulp.task("templates", function() {
+  const templates = {};
+  const files = fs
+    .readdirSync("./pages/partials")
+    .filter(function(file) {
+      // return filename
+      if (file.charAt(0) === "_") {
+        return file;
+      }
+    })
+    // add them to the templates object
+    .forEach(function(template) {
+      const slug = template.replace("_", "").replace(".html", "");
+      templates[slug] = fs.readFileSync("./pages/partials/" + template, "utf8");
+    });
 
-      })
-      // add them to the templates object
-      .forEach(function(template) {
-        var slug = template.replace('_', '').replace('.html', '');
-        templates[slug] = fs.readFileSync("./pages/partials/" + template, "utf8");
-      });
-
-  return gulp.src(['./pages/*.html'])
-      .pipe(template(templates))
-      .on('error', gutil.log)
-      .pipe(gulp.dest('./app'));
+  return gulp
+    .src(["./pages/*.html"])
+    .pipe(template(templates))
+    .on("error", gutil.log)
+    .pipe(gulp.dest("./app"));
 });
 
 // Watch task
-gulp.task('default',function() {
+gulp.task("default", function() {
   // run task initially, after that watch
-  gulp.start(['styles', 'templates']);
-  gulp.watch('./scss/*.scss',['styles']);
-  gulp.watch('pages/**/*.html',['templates']);
-  gulp.src('./app')
-    .pipe(server({
-      livereload: true,
-      directoryListing: false,
-      open: true
-    }));
+  gulp.start(["styles", "templates"]);
+  gulp.watch("./scss/*.scss", ["styles"]);
+  gulp.watch("pages/**/*.html", ["templates"]);
+  gulp.src("./app").pipe(server(serverOptions));
 });
