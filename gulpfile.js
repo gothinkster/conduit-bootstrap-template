@@ -1,16 +1,17 @@
 var gulp = require('gulp');
 var template = require('gulp-template');
-var server = require('gulp-server-livereload');
+var livereload = require('gulp-livereload');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var fs = require('fs');
 var gutil = require('gulp-util');
 
 gulp.task('styles', function() {
-  gulp.src('./scss/style.scss')
+  return gulp.src('./scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCss({compatibility: 'ie9'}))
     .pipe(gulp.dest('./app/css/'))
+    .pipe(livereload())
 });
 
 gulp.task('templates', function () {
@@ -32,19 +33,15 @@ gulp.task('templates', function () {
   return gulp.src(['./pages/*.html'])
       .pipe(template(templates))
       .on('error', gutil.log)
-      .pipe(gulp.dest('./app'));
+      .pipe(gulp.dest('./app'))
+      .pipe(livereload());
 });
 
 // Watch task
 gulp.task('default',function() {
   // run task initially, after that watch
-  gulp.start(['styles', 'templates']);
-  gulp.watch('./scss/*.scss',['styles']);
-  gulp.watch('pages/**/*.html',['templates']);
-  gulp.src('./app')
-    .pipe(server({
-      livereload: true,
-      directoryListing: false,
-      open: true
-    }));
+  gulp.parallel(['styles', 'templates'])();
+  livereload.listen({port: 3001});
+  gulp.watch('./scss/*.scss', gulp.series('styles'));
+  gulp.watch('pages/**/*.html', gulp.series('templates'));
 });
